@@ -1,0 +1,15 @@
+<launch>
+
+  <!-- Provide the path to the map file you created -->
+  <arg name="map_file" default="$(find fetch_maps)/maps/playground.yaml" />
+
+  <!-- Include the fetch_nav.launch file from the appropriate package -->
+  <include file="$(find fetch_navigation)/launch/fetch_nav.launch" >
+    <!-- Pass the map_file argument to the fetch_nav.launch file -->
+    <arg name="map_file" value="$(arg map_file)" />
+  </include>
+
+  <!-- Launch the RViz visualization -->
+  <node pkg="rviz" type="rviz" name="$(anon rviz)" args="-d $(find applications)/config/navigation.rviz" />
+
+</launch>
