@@ -69,8 +69,16 @@ So, we can repeat the procedure we did in Lab 16 to figure out how RViz set the 
 
 Here are some questions to guide you:
 - Does RViz use a topic, a service or an action to start autonomous navigation?
+
+  RViz uses an action to start autonomous navigation. It communicates with the move_base action server to send a goal pose.
+
 - What node is RViz communicating with? Is it AMCL or a different node?
+
+  RViz communicates with the move_base node, not the AMCL node. The move_base node internally uses information from the AMCL node to navigate the robot.
+
 - If you are unsure, what documentation can you look up to help you find the answer?
+
+  If you're unsure, you can refer to the ROS wiki pages for [move_base](http://wiki.ros.org/move_base), [AMCL](http://wiki.ros.org/amcl), and [navigation](http://wiki.ros.org/navigation) packages to better understand the underlying concepts and communication methods. The official documentation is a great resource for understanding how different ROS components interact with each other.
 
 # Final notes
 Keep in mind that in the next lab, you will need to do essentially the same thing, but with a graphical interface.
