@@ -5,17 +5,14 @@ import robot_api
 
 
 def print_usage():
-    # NOTE: We don't expect you to implement look_at for Kuri
-    # But if you do, show us because that would be impressive ;)
-    # `eyes`, naturally, is Kuri only.
-    print(f'Usage:'
-          f'    rosrun applications head_demo.py look_at FRAME_ID X Y Z'
-          f'    rosrun applications head_demo.py pan_tilt PAN_ANG TILT_ANG'
-          f'    rosrun applications head_demo.py eyes ANG'
-          f'Examples:'
-          f'    rosrun applications head_demo.py look_at base_link 1 0 0.3'
-          f'    rosrun applications head_demo.py pan_tilt 0 0.707'
-          f'    rosrun applications head_demo.py eyes .50')
+    print(f'Usage:\n'
+          f'    rosrun applications head_demo.py look_at FRAME_ID X Y Z\n'
+          f'    rosrun applications head_demo.py pan_tilt PAN_ANG TILT_ANG\n'
+          f'    rosrun applications head_demo.py eyes ANG\n'
+          f'Examples:\n'
+          f'    rosrun applications head_demo.py look_at base_link 1 0 0.3\n'
+          f'    rosrun applications head_demo.py pan_tilt 0 0.707\n'
+          f'    rosrun applications head_demo.py eyes .50\n')
 
 
 def wait_for_time():

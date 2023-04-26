@@ -521,3 +521,11 @@ ready() {
 Now, your app should look like this:
 
 ![image](https://user-images.githubusercontent.com/1175286/35311223-4e720428-006a-11e8-9f06-551ec4e675bc.png)
+
+```bash
+~/catkin_ws/src/517/map_annotator/frontend$ roslaunch map_annotator map_annotator.launch 
+~/catkin_ws/src/517/map_annotator/frontend$ polymer serve -H 192.168.50.39
+~/catkin_ws/src/fetch_ros$ http-server ~/catkin_ws/src/fetch_ros --host 0.0.0.0 -p 8001 --cors
+$ roslaunch fetch_gazebo playground.launch
+$ roslaunch applications nav_rviz.launch 
+```

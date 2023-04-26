@@ -53,6 +53,8 @@ class Head(object):
             y: The y value of the point to look at.
             z: The z value of the point to look at.
         """
+        print(f"Looking at point: frame_id={frame_id}, x={x}, y={y}, z={z}")
+
         # TODO: Create goal
         goal = PointHeadGoal()
         goal.target.header.frame_id = frame_id
@@ -61,7 +63,7 @@ class Head(object):
         goal.target.point.z = z
 
         # TODO: Fill out the goal (we recommend setting min_duration to 1 second)
-        goal.max_velocity = 1.0
+        goal.max_velocity = 0.5
         goal.min_duration = rospy.Duration(1.0)
 
         # TODO: Send the goal
@@ -69,6 +71,7 @@ class Head(object):
 
         # TODO: Wait for result
         self.look_at_client.wait_for_result()
+        print(f"Looking at point: frame_id={frame_id}, x={x}, y={y}, z={z}")
 
 
     def pan_tilt(self, pan, tilt):

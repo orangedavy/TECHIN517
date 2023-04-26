@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="map_annotator" type="pose_commander.py" name="pose_commander" output="screen" />
+</launch>

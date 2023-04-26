@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
-import robot_api
 import rospy
+import robot_api
 
 
 def wait_for_time():
