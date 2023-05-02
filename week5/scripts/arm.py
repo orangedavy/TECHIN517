@@ -99,9 +99,11 @@ class Arm(object):
         self._move_group_client.wait_for_result(rospy.Duration(10))
 
         result = self._move_group_client.get_result()
-        code = moveit_error_string(result.error_code.val)
-
-        return None if code == 'SUCCESS' else code
+        if result is None:
+            return 'No result available.'
+        else:
+            code = moveit_error_string(result.error_code.val)
+            return None if code == 'SUCCESS' else code
     
 
     def check_pose(self, 
