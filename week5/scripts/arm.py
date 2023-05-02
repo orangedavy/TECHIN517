@@ -59,7 +59,8 @@ class Arm(object):
                     plan_only=False,
                     replan=False,
                     replan_attempts=5,
-                    tolerance=0.01):
+                    tolerance=0.01,
+                    orientation_constraint=None):
         """Moves the end-effector to a pose, using motion planning.
 
         Args:
@@ -77,10 +78,12 @@ class Arm(object):
                 plan on the robot. Useful for determining whether this is
                 likely to succeed.
             replan: bool. If True, then if an execution fails (while the arm is
-                moving), then come up with a new plan and execute it.
+                moving), come up with a new plan and execute it.
             replan_attempts: int. How many times to replan if the execution
                 fails.
             tolerance: float. The goal tolerance, in meters.
+            orientation_constraint: Optional OrientationConstraint object. If 
+                provided, it will be used as an orientation constraint for path.
 
         Returns:
             string describing the error if an error occurred, else None.
@@ -93,6 +96,10 @@ class Arm(object):
         goal_builder.replan = replan
         goal_builder.replan_attempts = replan_attempts
         goal_builder.tolerance = tolerance
+
+        if orientation_constraint is not None:
+            goal_builder.add_path_orientation_constraint(orientation_constraint)
+
         goal = goal_builder.build()
 
         self._move_group_client.send_goal(goal)
