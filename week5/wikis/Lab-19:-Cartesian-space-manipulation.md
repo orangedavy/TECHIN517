@@ -214,7 +214,7 @@ if error is not None:
 
 In your `main` function, be sure to cancel all goals on shutdown.
 This is a safety feature that ensures that if you accidentally run the code on the real robot, you can stop the arm from moving by just killing your node.
-Make sure the register the shutdown handler **BEFORE** entering any infinite loops.
+Make sure to register the shutdown handler **BEFORE** entering any infinite loops.
 ```py
 def main():
    # ... init ...
